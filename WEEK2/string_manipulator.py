@@ -1,5 +1,11 @@
 class StringManipulator:
     # __init__ method removed
+    # The __init__ method in a Python class is called the constructor.
+    # It is automatically called when a new object of the class is created.
+    # Used __init__ to initialize the object's attributes with values or set up any required state.
+    # Example:
+    # def __init__(self, text):
+    #     self.text = text
     
     def find_character(self, text, char):
         return text.find(char)
