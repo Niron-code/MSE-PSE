@@ -16,10 +16,10 @@ name = StringManipulator("example")
 
 # Call the find_character method on the object
 result = name.find_character('x')
-print(result)  # Output: 1
+print("Character position is : ",result)  # Output: 1
 
 length = name.find_length()
-print(length)  # Output: 7
+print("Length of the word is : ",length)  # Output: 7
 
 uppercase_text = name.convert_to_uppercase()
-print(uppercase_text)  # Output: EXAMPLE
+print("Upper case word is : ",uppercase_text)  # Output: EXAMPLE
