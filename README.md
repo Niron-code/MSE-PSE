@@ -18,6 +18,11 @@ The repository is organized by weeks, with each week containing different progra
   - Interactive user input
   - Word reveal mechanism
 
+- `string_manipulator.py`: Demonstrates a class for basic string operations, including:
+  - Finding the position of a character in a string
+  - Calculating the length of the string
+  - Converting the string to uppercase
+
 ## Running the Programs
 
 All programs are written in Python. To run any program:
