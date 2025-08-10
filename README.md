@@ -11,17 +11,20 @@ The repository is organized by weeks, with each week containing different progra
 - `rainfall.py`: Program for rainfall data analysis
 - `tempconvert.py`: Temperature conversion utility
 
+
 ### Week 2
 - `random_word_guess.py`: An interactive word guessing game with features like:
   - Random word selection from a predefined list
   - Lives system
   - Interactive user input
   - Word reveal mechanism
-
 - `string_manipulator.py`: Demonstrates a class for basic string operations, including:
   - Finding the position of a character in a string
   - Calculating the length of the string
   - Converting the string to uppercase
+- `string_counter.py`: Contains a `WordCounter` class to count the number of words in a user-provided sentence.
+- `personal_details.py`: Interactive program using a class to collect, display, and update a user's name, age, and address with input validation.
+
 
 ## Running the Programs
 
