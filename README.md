@@ -11,7 +11,6 @@ The repository is organized by weeks, with each week containing different progra
 - `rainfall.py`: Program for rainfall data analysis
 - `tempconvert.py`: Temperature conversion utility
 
-
 ### Week 2
 - `random_word_guess.py`: An interactive word guessing game with features like:
   - Random word selection from a predefined list
@@ -24,6 +23,12 @@ The repository is organized by weeks, with each week containing different progra
   - Converting the string to uppercase
 - `string_counter.py`: Contains a `WordCounter` class to count the number of words in a user-provided sentence.
 - `personal_details.py`: Interactive program using a class to collect, display, and update a user's name, age, and address with input validation.
+- `human_resource.py`: Object-oriented HR management system that allows you to:
+  - Add employees with name, job title, and salary (each assigned a unique ID)
+  - Display all employees in a formatted table
+  - Give salary raises interactively, with input validation and repeat/quit options
+  - Includes user-friendly greetings and feedback
+
 
 
 ## Running the Programs
