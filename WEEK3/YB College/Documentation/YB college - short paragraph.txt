@@ -1,0 +1,9 @@
+The YB College database is designed to manage and organize essential information about students, lecturers, courses, and enrollments.
+The database will record student details, lecturer profiles, and course information, as well as which students are enrolled in which courses.
+
+Entities will be used: STUDENT, LECTURER, COURSE, ENROLLMENT
+
+STUDENT: Each student has a unique ID, name, and contact info.
+LECTURER: Each lecturer has a unique ID, name, and contact info.
+COURSE: Each course has a unique ID, a name, and is taught by one lecturer (lecturer_id is a foreign key).
+ENROLLMENT: This table links students to courses, recording each enrollment with its own ID, and foreign keys for student and course.
