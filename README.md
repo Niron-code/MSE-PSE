@@ -45,3 +45,17 @@ All programs are written in Python. To run any program:
 ## Course Information
 
 This repository is part of the Professional Software Engineering module (MSE800) which focuses on practical programming exercises and software development best practices.
+
+## User Management
+This module provides functionalities for managing users and students. It includes database operations, user authentication, and student record management. Main scripts are located in `WEEK3/user_management/`.
+
+- `database.py`: Handles database connections and queries.
+- `user_manager.py`: Manages user authentication and operations.
+- `student_manager.py`: Manages student records and related operations.
+- `main.py`: Entry point for user management operations.
+
+## YB College
+This section contains resources and documentation for YB College database and management system. Documentation and ER diagrams are available in `WEEK3/YB College/Documentation/`.
+
+- `YB college - ER Diagram.png`: Entity-Relationship diagram for the college database.
+- `YB college - short paragraph.txt`: Brief description of the college database system.
