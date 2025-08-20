@@ -14,9 +14,8 @@ class Lecturer:
         try:
             cursor.execute("INSERT INTO lecturers (name, email) VALUES (?, ?)", (name, email))
             conn.commit()
-            print("Lecturer added successfully.")
         except sqlite3.IntegrityError:
-            print("Email must be unique.")
+            pass
         conn.close()
 
     @staticmethod
@@ -44,4 +43,3 @@ class Lecturer:
         cursor.execute("DELETE FROM lecturers WHERE id = ?", (lecturer_id,))
         conn.commit()
         conn.close()
-        print("🗑️ Lecturer deleted.")
