@@ -2,17 +2,18 @@ from database import create_connection
 import sqlite3
 
 class Lecturer:
-    def __init__(self, lecturer_id, name, email):
+    def __init__(self, lecturer_id, name, email, profile):
         self.lecturer_id = lecturer_id
         self.name = name
         self.email = email
+        self.profile = profile
 
     @staticmethod
-    def add_lecturer(name, email):
+    def add_lecturer(name, email, profile):
         conn = create_connection()
         cursor = conn.cursor()
         try:
-            cursor.execute("INSERT INTO lecturers (name, email) VALUES (?, ?)", (name, email))
+            cursor.execute("INSERT INTO lecturers (name, email, profile) VALUES (?, ?, ?)", (name, email, profile))
             conn.commit()
         except sqlite3.IntegrityError:
             pass

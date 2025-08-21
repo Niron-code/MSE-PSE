@@ -1,43 +1,41 @@
 from database import create_connection
 import sqlite3
 
-class Student:
-    def __init__(self, student_id, name, email, profile):
-        self.student_id = student_id
+class Course:
+    def __init__(self, course_id, name):
+        self.course_id = course_id
         self.name = name
-        self.email = email
-        self.profile = profile
 
     @staticmethod
-    def add_student(name, email, profile):
+    def add_course(name):
         conn = create_connection()
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO students (name, email, profile) VALUES (?, ?, ?)", (name, email, profile))
+        cursor.execute("INSERT INTO course (name) VALUES (?)", (name,))
         conn.commit()
         conn.close()
 
     @staticmethod
-    def view_students():
+    def view_courses():
         conn = create_connection()
         cursor = conn.cursor()
-        cursor.execute("SELECT * FROM students")
+        cursor.execute("SELECT * FROM course")
         rows = cursor.fetchall()
         conn.close()
         return rows
 
     @staticmethod
-    def search_student(name):
+    def search_course(name):
         conn = create_connection()
         cursor = conn.cursor()
-        cursor.execute("SELECT * FROM students WHERE name LIKE ?", ('%' + name + '%',))
+        cursor.execute("SELECT * FROM course WHERE name LIKE ?", ('%' + name + '%',))
         rows = cursor.fetchall()
         conn.close()
         return rows
 
     @staticmethod
-    def delete_student(student_id):
+    def delete_course(course_id):
         conn = create_connection()
         cursor = conn.cursor()
-        cursor.execute("DELETE FROM students WHERE id = ?", (student_id,))
+        cursor.execute("DELETE FROM course WHERE id = ?", (course_id,))
         conn.commit()
         conn.close()

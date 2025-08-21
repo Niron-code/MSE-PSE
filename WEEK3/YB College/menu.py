@@ -4,6 +4,7 @@ class Menu:
         print("\n==== Main Menu ====")
         print("1. Student")
         print("2. Lecturer")
+        print("3. Course")
         print("*. Exit")
 
     @staticmethod
@@ -22,4 +23,13 @@ class Menu:
         print("2. View All Lecturers")
         print("3. Search Lecturer by Name")
         print("4. Delete Lecturer by ID")
+        print("#. Main Menu")
+
+    @staticmethod
+    def course_menu():
+        print("\n==== Course Manager ====")
+        print("1. Add Course")
+        print("2. View All Courses")
+        print("3. Search Course by Name")
+        print("4. Delete Course by ID")
         print("#. Main Menu")
