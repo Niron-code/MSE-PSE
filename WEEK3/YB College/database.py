@@ -29,5 +29,14 @@ def create_table():
             name TEXT NOT NULL UNIQUE
         )
     ''')
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS enrollment (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            student_id INTEGER NOT NULL,
+            course_id INTEGER NOT NULL,
+            FOREIGN KEY(student_id) REFERENCES students(id),
+            FOREIGN KEY(course_id) REFERENCES course(id)
+        )
+    ''')
     conn.commit()
     conn.close()

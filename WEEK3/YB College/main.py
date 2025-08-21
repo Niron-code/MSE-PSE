@@ -2,13 +2,14 @@ from database import create_table
 from lecturer_manager import Lecturer
 from student_manager import Student
 from course_manager import Course
+from enrollment_manager import Enrollment
 from menu import Menu
 
 def main():
     create_table()
     while True:
         Menu.main_menu()
-        choice = input("Select an option (1-3/*): ")
+        choice = input("Select an option (1-4/*): ")
         if choice == '1':
             while True:
                 Menu.student_menu()
@@ -79,6 +80,31 @@ def main():
                     course_id = int(input("Enter course ID to delete: "))
                     Course.delete_course(course_id)
                 elif c_choice == '#':
+                    break
+                else:
+                    print("Invalid choice, try again.")
+        elif choice == '4': 
+            while True:
+                Menu.enrollment_menu()
+                e_choice = input("Select an option (1-4/#): ")
+                if e_choice == '1':
+                    student_id = int(input("Enter student ID: "))
+                    course_id = int(input("Enter course ID: "))
+                    Enrollment.add_enrollment(student_id, course_id)
+                elif e_choice == '2':
+                    enrollments = Enrollment.view_enrollments()
+                    for enrollment in enrollments:
+                        print(enrollment)
+                elif e_choice == '3':
+                    student_id = int(input("Enter student ID: "))
+                    course_id = int(input("Enter course ID: "))
+                    enrollments = Enrollment.search_enrollment(student_id, course_id)
+                    for enrollment in enrollments:
+                        print(enrollment)
+                elif e_choice == '4':
+                    enrollment_id = int(input("Enter enrollment ID to delete: "))
+                    Enrollment.delete_enrollment(enrollment_id)
+                elif e_choice == '#':
                     break
                 else:
                     print("Invalid choice, try again.")

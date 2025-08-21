@@ -5,6 +5,7 @@ class Menu:
         print("1. Student")
         print("2. Lecturer")
         print("3. Course")
+        print("4. Enrollment")
         print("*. Exit")
 
     @staticmethod
@@ -32,4 +33,13 @@ class Menu:
         print("2. View All Courses")
         print("3. Search Course by Name")
         print("4. Delete Course by ID")
+        print("#. Main Menu")
+
+    @staticmethod
+    def enrollment_menu():
+        print("\n==== Enrollment Manager ====")
+        print("1. Add Enrollment")
+        print("2. View All Enrollments")
+        print("3. Search Enrollment")
+        print("4. Delete Enrollment")
         print("#. Main Menu")
