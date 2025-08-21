@@ -38,5 +38,14 @@ def create_table():
             FOREIGN KEY(course_id) REFERENCES course(id)
         )
     ''')
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS course_lecturer (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            course_id INTEGER NOT NULL,
+            lecturer_id INTEGER NOT NULL,
+            FOREIGN KEY(course_id) REFERENCES course(id),
+            FOREIGN KEY(lecturer_id) REFERENCES lecturers(id)
+        )
+    ''')
     conn.commit()
     conn.close()

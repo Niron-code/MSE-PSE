@@ -44,3 +44,20 @@ class Lecturer:
         cursor.execute("DELETE FROM lecturers WHERE id = ?", (lecturer_id,))
         conn.commit()
         conn.close()
+
+    @staticmethod
+    def update_lecturer(lecturer_id, name, email, profile):
+        conn = create_connection()
+        cursor = conn.cursor()
+        cursor.execute("UPDATE lecturers SET name = ?, email = ?, profile = ? WHERE id = ?", (name, email, profile, lecturer_id))
+        conn.commit()
+        conn.close()
+
+    @staticmethod
+    def get_lecturer(lecturer_id):
+        conn = create_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM lecturers WHERE id = ?", (lecturer_id,))
+        row = cursor.fetchone()
+        conn.close()
+        return row

@@ -3,17 +3,18 @@ from lecturer_manager import Lecturer
 from student_manager import Student
 from course_manager import Course
 from enrollment_manager import Enrollment
+from course_lecturer_manager import CourseLecturer
 from menu import Menu
 
 def main():
     create_table()
     while True:
         Menu.main_menu()
-        choice = input("Select an option (1-4/*): ")
+        choice = input("Select an option (1-5/*): ")
         if choice == '1':
             while True:
                 Menu.student_menu()
-                s_choice = input("Select an option (1-4/#): ")
+                s_choice = input("Select an option (1-5/#): ")
                 if s_choice == '1':
                     name = input("Enter student name: ")
                     email = input("Enter student email: ")
@@ -31,6 +32,12 @@ def main():
                 elif s_choice == '4':
                     student_id = int(input("Enter student ID to delete: "))
                     Student.delete_student(student_id)
+                elif s_choice == '5':
+                    student_id = int(input("Enter student ID to update: "))
+                    name = input("Enter new student name: ")
+                    email = input("Enter new student email: ")
+                    profile = input("Enter new student profile: ")
+                    Student.update_student(student_id, name, email, profile)
                 elif s_choice == '#':
                     break
                 else:
@@ -38,7 +45,7 @@ def main():
         elif choice == '2':
             while True:
                 Menu.lecturer_menu()
-                l_choice = input("Select an option (1-4/#): ")
+                l_choice = input("Select an option (1-5/#): ")
                 if l_choice == '1':
                     name = input("Enter lecturer name: ")
                     email = input("Enter lecturer email: ")
@@ -56,6 +63,12 @@ def main():
                 elif l_choice == '4':
                     lecturer_id = int(input("Enter lecturer ID to delete: "))
                     Lecturer.delete_lecturer(lecturer_id)
+                elif l_choice == '5':
+                    lecturer_id = int(input("Enter lecturer ID to update: "))
+                    name = input("Enter new lecturer name: ")
+                    email = input("Enter new lecturer email: ")
+                    profile = input("Enter new lecturer profile: ")
+                    Lecturer.update_lecturer(lecturer_id, name, email, profile)
                 elif l_choice == '#':
                     break
                 else:
@@ -63,7 +76,7 @@ def main():
         elif choice == '3':
             while True:
                 Menu.course_menu()
-                c_choice = input("Select an option (1-4/#): ")
+                c_choice = input("Select an option (1-5/#): ")
                 if c_choice == '1':
                     name = input("Enter course name: ")
                     Course.add_course(name)
@@ -79,6 +92,10 @@ def main():
                 elif c_choice == '4':
                     course_id = int(input("Enter course ID to delete: "))
                     Course.delete_course(course_id)
+                elif c_choice == '5':
+                    course_id = int(input("Enter course ID to update: "))
+                    name = input("Enter new course name: ")
+                    Course.update_course(course_id, name)
                 elif c_choice == '#':
                     break
                 else:
@@ -86,7 +103,7 @@ def main():
         elif choice == '4': 
             while True:
                 Menu.enrollment_menu()
-                e_choice = input("Select an option (1-4/#): ")
+                e_choice = input("Select an option (1-5/#): ")
                 if e_choice == '1':
                     student_id = int(input("Enter student ID: "))
                     course_id = int(input("Enter course ID: "))
@@ -104,12 +121,48 @@ def main():
                 elif e_choice == '4':
                     enrollment_id = int(input("Enter enrollment ID to delete: "))
                     Enrollment.delete_enrollment(enrollment_id)
+                elif e_choice == '5':
+                    enrollment_id = int(input("Enter enrollment ID to update: "))
+                    student_id = int(input("Enter new student ID: "))
+                    course_id = int(input("Enter new course ID: "))
+                    Enrollment.update_enrollment(enrollment_id, student_id, course_id)
                 elif e_choice == '#':
                     break
                 else:
                     print("Invalid choice, try again.")
+        elif choice == '5':
+            while True:
+                Menu.course_lecturer_menu()
+                cl_choice = input("Select an option (1-5/#): ")
+                if cl_choice == '1':
+                    course_id = int(input("Enter course ID: "))
+                    lecturer_id = int(input("Enter lecturer ID: "))
+                    CourseLecturer.add_course_lecturer(course_id, lecturer_id)
+                elif cl_choice == '2':
+                    course_lecturers = CourseLecturer.view_course_lecturers()
+                    for cl in course_lecturers:
+                        print(cl)
+                elif cl_choice == '3':
+                    course_id = int(input("Enter course ID: "))
+                    lecturer_id = int(input("Enter lecturer ID: "))
+                    course_lecturers = CourseLecturer.search_course_lecturer(course_id, lecturer_id)
+                    for cl in course_lecturers:
+                        print(cl)
+                elif cl_choice == '4':
+                    course_lecturer_id = int(input("Enter course lecturer ID to delete: "))
+                    CourseLecturer.delete_course_lecturer(course_lecturer_id)
+                elif cl_choice == '5':
+                    course_lecturer_id = int(input("Enter course lecturer ID to update: "))
+                    course_id = int(input("Enter new course ID: "))
+                    lecturer_id = int(input("Enter new lecturer ID: "))
+                    CourseLecturer.update_course_lecturer(course_lecturer_id, course_id, lecturer_id)
+                elif cl_choice == '#':
+                    break
+                else:
+                    print("Invalid choice, try again.")
         elif choice == '*':
-            print("Goodbye!")
+            print("Thank you for using the Yoobee College Management System!")
+            print("Exiting...")
             break
         else:
             print("Invalid choice, try again.")

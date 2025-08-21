@@ -39,3 +39,11 @@ class Course:
         cursor.execute("DELETE FROM course WHERE id = ?", (course_id,))
         conn.commit()
         conn.close()
+
+    @staticmethod
+    def update_course(course_id, name):
+        conn = create_connection()
+        cursor = conn.cursor()
+        cursor.execute("UPDATE course SET name = ? WHERE id = ?", (name, course_id))
+        conn.commit()
+        conn.close()

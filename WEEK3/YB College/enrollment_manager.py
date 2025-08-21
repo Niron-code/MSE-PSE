@@ -51,3 +51,11 @@ class Enrollment:
         cursor.execute("DELETE FROM enrollment WHERE id = ?", (enrollment_id,))
         conn.commit()
         conn.close()
+
+    @staticmethod
+    def update_enrollment(enrollment_id, student_id, course_id):
+        conn = create_connection()
+        cursor = conn.cursor()
+        cursor.execute("UPDATE enrollment SET student_id = ?, course_id = ? WHERE id = ?", (student_id, course_id, enrollment_id))
+        conn.commit()
+        conn.close()
