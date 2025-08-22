@@ -6,8 +6,6 @@ The **YB College database** is designed to manage and organize essential informa
 - Course information
 - Which students are enrolled in which courses
 
----
-
 ### Entities
 - **STUDENT**: Each student has a unique ID, name, profile, and contact info.
 - **LECTURER**: Each lecturer has a unique ID, name, profile, and contact info.
@@ -15,6 +13,7 @@ The **YB College database** is designed to manage and organize essential informa
 - **ENROLLMENT**: Links students to courses, recording each enrollment with its own ID, and foreign keys for student and course.
 - **LECTURER_COURSE**: Represents the many-to-many relationship between lecturers and courses. Each record contains a unique ID, a `lecturer_id` (FK), and a `course_id` (FK).
 
+---
 ## Use Cases
 
 ### Actors
