@@ -12,8 +12,11 @@ class Student:
     def add_student(name, email, profile):
         conn = create_connection()
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO students (name, email, profile) VALUES (?, ?, ?)", (name, email, profile))
-        conn.commit()
+        try:
+            cursor.execute("INSERT INTO students (name, email, profile) VALUES (?, ?, ?)", (name, email, profile))
+            conn.commit()
+        except sqlite3.IntegrityError:
+            print(" Email must be unique.")
         conn.close()
 
     @staticmethod

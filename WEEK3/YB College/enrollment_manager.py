@@ -1,5 +1,4 @@
 from database import create_connection
-import sqlite3
 
 class Enrollment:
     def __init__(self, enrollment_id, student_id, course_id):

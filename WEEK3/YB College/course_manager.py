@@ -10,8 +10,11 @@ class Course:
     def add_course(name):
         conn = create_connection()
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO course (name) VALUES (?)", (name,))
-        conn.commit()
+        try:
+            cursor.execute("INSERT INTO course (name) VALUES (?)", (name,))
+            conn.commit()
+        except sqlite3.IntegrityError:
+            print(" Course name must be unique.")
         conn.close()
 
     @staticmethod

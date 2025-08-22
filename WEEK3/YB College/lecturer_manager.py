@@ -16,7 +16,7 @@ class Lecturer:
             cursor.execute("INSERT INTO lecturers (name, email, profile) VALUES (?, ?, ?)", (name, email, profile))
             conn.commit()
         except sqlite3.IntegrityError:
-            pass
+            print(" Email must be unique.")
         conn.close()
 
     @staticmethod
