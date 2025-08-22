@@ -1,0 +1,13 @@
+ADMIN
+- Managing student record.
+- Managing lecturer record.
+- Enrolling student to course.
+- Assigning Lecturer to the course 
+
+Lecturer
+- Update lecturer details.
+- Managing the course.
+
+Student
+- Update student details.
+- Enrolling to course.
