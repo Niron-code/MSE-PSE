@@ -1,5 +1,6 @@
 from database import create_connection
 import sqlite3
+from utility import Utility
 
 class Student:
     def __init__(self, student_id, name, email, profile):
@@ -10,6 +11,10 @@ class Student:
 
     @staticmethod
     def add_student(name, email, profile):
+        if not Utility.namevalidator(name):
+            return
+        if not Utility.emailvalidator(email):
+            return
         conn = create_connection()
         cursor = conn.cursor()
         try:
@@ -47,6 +52,10 @@ class Student:
 
     @staticmethod
     def update_student(student_id, name, email, profile):
+        if not Utility.namevalidator(name):
+            return
+        if not Utility.emailvalidator(email):
+            return
         conn = create_connection()
         cursor = conn.cursor()
         cursor.execute("UPDATE students SET name = ?, email = ?, profile = ? WHERE id = ?", (name, email, profile, student_id))
