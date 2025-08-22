@@ -9,6 +9,7 @@ This project is a simple college management system built with Python and SQLite.
  Assign lecturers to courses
  View enrollments with student names and course names
  View Courese and Lecturer relationship
+ Name and email validation for students and lecturers to ensure correct data entry
 
 ## Structure
 - `database.py`: Handles database connection and table creation
@@ -20,6 +21,8 @@ This project is a simple college management system built with Python and SQLite.
 - `menu.py`: Provides the user interface and navigation for the application
 - `main.py`: Main entry point for running the application
 - `Documentation/`: Contains ER diagrams and documentation
+- `utility.py`: Provides validation functions for names and emails to ensure data integrity when adding or updating students and lecturers.
+
 
 ## Database Schema
 See `Documentation/ER_Diagram.png` for the entity-relationship diagram.
