@@ -45,4 +45,4 @@ if __name__ == "__main__":
     academic = Academic("Dr. Smith", "456 Prof Ave", 45, "A001", "T123", 75000)
     
     # General inherits from Staff which inherits from Person
-    staff = General("Jane Wilson", "789 Staff Rd", 35, "G001", "T456", 25.50)
+    general = General("Jane Wilson", "789 Staff Rd", 35, "G001", "T456", 25.50)
