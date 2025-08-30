@@ -1,9 +1,15 @@
+# Encapsulation is an object-oriented programming concept that involves bundling data (attributes) 
+# and methods (functions) that operate on that data within a single unit, typically a class. 
+# It restricts direct access to some of the object's components, which helps protect the integrity 
+# of the data and hides the internal implementation details from outside interference. 
+# This is usually achieved by using private or protected members and providing public methods to access 
+# or modify the data.
 class Student:
 	def __init__(self, name, age, passport_number):
-		self.name = name  # public
-		self._age = age   # protected
-		self.__grade = 'A'  # private
-		self.__passport_number = passport_number  # private
+		self.name = name  # public: accessible from anywhere (inside or outside the class)
+		self._age = age   # protected: by convention, should not be accessed outside the class or its subclasses
+		self.__grade = 'A'  # private: only accessible within this class (name mangling applies)
+		self.__passport_number = passport_number  # private: only accessible within this class (name mangling applies)
 
 	def get_grade(self):
 		return self.__grade
