@@ -34,8 +34,9 @@ class GooglePayPayment(PaymentProcessor):
         return f"Processing {amount} via GooglePay"
 
 
-# Factory:
-# The PaymentFactory class creates instances of payment processors based on the provided method name. This separates object creation from usage, making it easy to add or modify payment methods without changing client code.
+# Factory Pattern:
+# The PaymentFactory class creates instances of payment processors based on the provided method name. 
+# This separates object creation from usage, making it easy to add or modify payment methods without changing client code.
 class PaymentFactory:
     def create(self, method: str) -> PaymentProcessor:
         method = method.lower()
@@ -55,7 +56,8 @@ class PaymentFactory:
 
 
 # Singleton Pattern:
-# PaymentGateway is implemented as a Singleton, meaning only one instance exists during the application's lifetime. This is important for shared resources like payment gateways, ensuring consistent state and avoiding duplicate processing.
+# PaymentGateway is implemented as a Singleton, meaning only one instance exists during the application's lifetime. 
+# This is important for shared resources like payment gateways, ensuring consistent state and avoiding duplicate processing.
 class PaymentGateway:
     _instance = None
 
