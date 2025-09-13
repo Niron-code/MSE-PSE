@@ -40,18 +40,16 @@ class GooglePayPayment(PaymentProcessor):
 class PaymentFactory:
     def create(self, method: str) -> PaymentProcessor:
         method = method.lower()
-        if method == "paypal":
-            return PayPalPayment()
-        if method == "stripe":
-            return StripePayment()
-        if method == "credit_card":
-            return CreditCardPayment()
-        if method == "banktransfer":
-            return BankTransferPayment()
-        if method == "cryptopayment":
-            return CryptoPayment()
-        if method == "googlepay":
-            return GooglePayPayment()
+        payment_methods = {
+            "paypal": PayPalPayment,
+            "stripe": StripePayment,
+            "credit_card": CreditCardPayment,
+            "banktransfer": BankTransferPayment,
+            "cryptopayment": CryptoPayment,
+            "googlepay": GooglePayPayment
+        }
+        if method in payment_methods:
+            return payment_methods[method]()
         raise ValueError(f"Unknown payment method: {method}")
 
 
@@ -69,7 +67,6 @@ class PaymentGateway:
     def process(self, payment_method: str, amount: float) -> str:
         processor = PaymentFactory().create(payment_method)
         return processor.process_payment(amount)
-
 
 
 def main():
