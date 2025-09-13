@@ -70,10 +70,6 @@ class PaymentGateway:
         processor = PaymentFactory().create(payment_method)
         return processor.process_payment(amount)
 
-    def checkout(self, payment_method: str, amount: float) -> str:
-        # Acts as a client method to process a payment using the factory.
-        processor = PaymentFactory().create(payment_method)
-        return processor.process_payment(amount)
 
 
 def main():
