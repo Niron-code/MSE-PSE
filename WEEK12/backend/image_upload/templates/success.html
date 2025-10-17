@@ -2,22 +2,32 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Success</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <h1>Upload Successful</h1>
+    <div class="container">
+        <div class="success-container">
+            <div class="success-icon">✅</div>
+            <h1>Upload Successful!</h1>
 
-    <p>Your image has been uploaded successfully.</p>
+            <p style="font-size: 1.2em; color: #48bb78; margin: 20px 0;">
+                Your image has been uploaded successfully.
+            </p>
 
-    <h3>Uploaded Image:</h3>
-    <p>
-        <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image" style="max-width:400px; height:auto;">
-    </p>
+            <h3>Uploaded Image:</h3>
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='uploads/' + filename) }}" 
+                     alt="Uploaded Image" 
+                     class="uploaded-image">
+            </div>
 
-    <p>
-        <a href="{{ url_for('home') }}">Back to Home</a> |
-        <a href="{{ url_for('upload_image') }}">Upload Another</a>
-    </p>
-
+            <div class="nav-links">
+                <a href="{{ url_for('home') }}">🏠 Back to Home</a>
+                <a href="{{ url_for('upload_image') }}">📤 Upload Another</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

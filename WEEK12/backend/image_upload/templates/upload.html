@@ -2,32 +2,41 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Image</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <h1>Upload an Image</h1>
+    <div class="container">
+        <h1>Upload an Image</h1>
 
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-                <p>{{ message }}</p>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for message in messages %}
+                        <div class="flash-message">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
 
-    <form method="POST" enctype="multipart/form-data">
-        <p>
-            <label for="file">Choose an image file:</label>
-            <input type="file" name="file" id="file" accept="image/*" required>
-        </p>
+        <form method="POST" enctype="multipart/form-data" class="upload-form">
+            <div class="form-group">
+                <label for="file">Choose an image file:</label>
+                <input type="file" name="file" id="file" accept="image/*" required>
+            </div>
 
-        <p>
-            <button type="submit">Upload Image</button>
-            <a href="{{ url_for('home') }}">Back to Home</a>
-        </p>
-    </form>
+            <div style="text-align: center;">
+                <button type="submit">📤 Upload Image</button>
+                <div class="nav-links" style="margin-top: 20px;">
+                    <a href="{{ url_for('home') }}">🏠 Back to Home</a>
+                </div>
+            </div>
+        </form>
 
-    <p>Supported formats: PNG, JPG, JPEG, GIF</p>
-
+        <div class="info-text">
+            📋 Supported formats: PNG, JPG, JPEG, GIF
+        </div>
+    </div>
 </body>
 </html>
